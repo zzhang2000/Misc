@@ -104,7 +104,9 @@ def main(x, target, epsilon =1e-8, test_only=False ):
             print( str_ops_sequence(x, best_ops), '=', best_est, 'error=', abs(best_est-target), f"iteration={count:,}" )
         if count % 1e9 == 0:
             print( f"iteration={count:,}, time elapsed{time.time()-start_time}")
-    print( f"{str_ops_sequence( x , best_ops )} = {best_est}, total iterations={count:,}, time elapsed={time.time()-start_time}" )
+    str_ops = str_ops_sequence(x, best_ops)
+    print(f"{str_ops} = {best_est}, error={abs(best_est-target)}, total iterations={count:,}, time elapsed={time.time()-start_time}")
+    print(f"Test out by copy & paste the string, eval() in python or excel directly: {str_ops}")
 
 
 def solve_24(x):
